@@ -1,5 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 
+// Assert global to have any type to avoid TypeScript error
+declare const global: {
+    prisma?: PrismaClient;
+};
+
 let prisma: PrismaClient;
 
 if (process.env.NODE_ENV === 'production') {
