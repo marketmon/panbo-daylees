@@ -1,7 +1,8 @@
 import React from 'react';
-import getPosts from '@/app/api/get-posts/route';
-import Post from './ui/Post';
+import { getPosts } from './lib/posts';
+import PostCard from './ui/PostCard';
 import AddPost from './ui/Add-Post';
+import { Post } from './lib/definitions';
 
 const Home = async () => {
 
@@ -14,9 +15,11 @@ const Home = async () => {
       <h3 className="pl-4 text-lg">Stay up to date with your co-founders</h3>
       <AddPost />
       <div>
-        {posts.map((post) => {
+        {posts.map((post: Post) => {
           return (
-            <Post key={post.id} content={post.content} creator={post.creator} />
+            <div key={post.id}>
+              <PostCard id={post.id} content={post.content} creator={post.creator} />
+            </div>
           )
         })}
       </div>

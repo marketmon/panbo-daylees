@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Post } from '../lib/definitions';
 
 export default function AddPost() {
-    const [post, setPost] = useState<Post>({ content: '', creator: '' });
+    const [post, setPost] = useState<Post>({ id: '', content: '', creator: '' });
 
     function handleContentChange(event: ChangeEvent<HTMLTextAreaElement>) {
         setPost((prevPost) => ({ ...prevPost, content: event.target.value }));
@@ -35,7 +35,7 @@ export default function AddPost() {
             console.error('Error adding post:', error);
         }
 
-        setPost({ content: '', creator: '' });
+        setPost({ id: '', content: '', creator: '' });
     }
 
 
